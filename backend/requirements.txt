@@ -1,4 +1,7 @@
 fastapi
 uvicorn
-pydantic
-python-multipart
+sqlalchemy
+alembic
+psycopg2-binary
+pytest
+pydantic-settings
