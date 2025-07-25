@@ -5,3 +5,7 @@ alembic
 psycopg2-binary
 pytest
 pydantic-settings
+passlib[bcrypt]
+python-jose[cryptography]
+httpx
+python-multipart
