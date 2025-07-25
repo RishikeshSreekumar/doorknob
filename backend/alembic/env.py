@@ -19,11 +19,8 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 from app.database import Base
-from app.models import item
+from app.models import item, user
 from app.config import settings
-from dotenv import load_dotenv
-
-load_dotenv()
 
 target_metadata = Base.metadata
 
@@ -65,7 +62,7 @@ def run_migrations_online() -> None:
 
     """
     configuration = config.get_section(config.config_ini_section)
-    configuration["sqlalchemy.url"] = settings.database_url
+    configuration["sqlalchemy.url"] = "postgresql://user:password@localhost:5432/db"
     connectable = engine_from_config(
         configuration,
         prefix="sqlalchemy.",
