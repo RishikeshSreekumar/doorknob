@@ -1,12 +1,13 @@
 from pydantic import BaseModel
 
-class UserCreate(BaseModel):
+class UserBase(BaseModel):
     email: str
+
+class UserCreate(UserBase):
     password: str
 
-class User(BaseModel):
+class User(UserBase):
     id: int
-    email: str
 
     class Config:
         orm_mode = True
@@ -17,3 +18,17 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     email: str | None = None
+
+class PostBase(BaseModel):
+    title: str
+    content: str
+
+class PostCreate(PostBase):
+    pass
+
+class Post(PostBase):
+    id: int
+    owner_id: int
+
+    class Config:
+        orm_mode = True

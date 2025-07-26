@@ -1,0 +1,19 @@
+[project]
+name = "doorknob-backend"
+version = "0.1.0"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "sqlalchemy",
+    "alembic",
+    "psycopg2-binary",
+    "pytest",
+    "pydantic-settings",
+    "passlib[bcrypt]",
+    "python-jose[cryptography]",
+    "httpx",
+    "python-multipart",
+]
+
+[tool.uv]
+# You can specify uv configurations here if needed.

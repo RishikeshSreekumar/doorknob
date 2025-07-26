@@ -1,9 +1,13 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import dotenv
+import os
+
+dotenv.load_dotenv()
 
 def get_engine():
-    return create_engine("postgresql://user:password@localhost:5432/db")
+    return create_engine(os.getenv("DATABASE_URL"))
 
 def get_session_local(engine):
     return sessionmaker(autocommit=False, autoflush=False, bind=engine)

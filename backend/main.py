@@ -1,8 +1,7 @@
 from fastapi import FastAPI
-from fastapi import FastAPI
-from .app.database import get_engine, Base
-from .app.models import item, user
-from .app.routers import auth
+from app.database import get_engine, Base
+from app.models import item, user, post, post
+from app.routers import auth, posts
 
 app = FastAPI()
 
@@ -12,6 +11,7 @@ def on_startup():
     Base.metadata.create_all(bind=engine)
 
 app.include_router(auth.router)
+app.include_router(posts.router)
 
 @app.get("/")
 def read_root():
